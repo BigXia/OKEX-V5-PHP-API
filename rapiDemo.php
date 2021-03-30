@@ -51,7 +51,8 @@ $coin = "XMR";
 // 获取当前账户交易手续费费率 Get Fee Rates
 //$res = $obj -> getTradeFee('SPOT','','','1');
 // 获取计息记录 Get interest-accrued
-//$res = $obj -> getInterestAccrued('BTC-USDT','','','');
+//https://www.okex.com/api/v5/account/interest-accrued?instId=BTC-USDT&ccy=USDT&mgnMode=&after=&before=&limit=
+//$res = $obj -> getInterestAccrued('BTC-USDT','USDT','','','','');
 // 期权希腊字母PA/BS切换 Set Greeks (PA/BS)
 //$res = $obj -> setGreeks('BS');
 // 查看账户最大可转余额 Get Maximum Withdrawals
@@ -91,9 +92,9 @@ $instrumentId = "ETH-USD-200925";
 $coin = "EOS";
 $obj = new MarketDataAPI(Config::$config);
 // 获取所有产品行情信息 Get Tickers
-$res = $obj->getTickers('FUTURES','BTC-USD');
+//$res = $obj->getTickers('FUTURES','BTC-USD');
 // 获取单个产品行情信息 Get Ticker
-//$res = $obj->getTicker('BTC-USD-SWAP');
+$res = $obj->getTicker('BTC-USD-SWAP');
 // 获取指数行情 Get Index Tickers
 //$res = $obj->getIndexTicker('BTC','');
 // 获取产品深度 Get Order Book
@@ -139,6 +140,9 @@ $obj = new PublicDataAPI(Config::$config);
 //$res = $obj->getLiquidationOrders('MARGIN','','','','','','','','','');
 // 获取标记价格 Get Mark Price
 //$res = $obj->getMarkPrice('MARGIN','','');
+// Status  scheduled: waiting; ongoing: processing; completed: completed .
+$res = $obj->getStatus('completed');
+
 
 /**
  * 交易 Trade
@@ -173,3 +177,5 @@ $obj = new TradeAPI(Config::$config);
 //$res = $obj -> getAlgoPending('','SPOT','','trigger','','','');
 // 获取历史策略委托单列表 Get Algo Order History
 //$res = $obj -> getAlgoHistory('canceled','','SPOT','','trigger','','');
+
+print_r($res);

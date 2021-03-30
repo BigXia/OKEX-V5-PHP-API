@@ -160,8 +160,10 @@ class AccountApi extends Utils
         $params = [
             'instId' => $instId,
             'ccy' => $ccy,
+            'mgnMode' => $mgnMode,
             'after' => $after,
             'before' => $before,
+            'limit' => $limit,
         ];
 
         return $this->request('/api/v5/account/interest-accrued', $params, 'GET');

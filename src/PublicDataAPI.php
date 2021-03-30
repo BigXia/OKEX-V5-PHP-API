@@ -132,4 +132,13 @@ class PublicDataAPI extends Utils
 
         return $this->request('/api/v5/public/mark-price',$params, 'GET');
     }
+
+    public function getStatus($state)
+    {
+        $params = [
+            'state' => $state
+        ];
+
+        return $this->request('/api/v5/system/status',$params, 'GET');
+    }
 }

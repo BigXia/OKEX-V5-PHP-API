@@ -46,7 +46,10 @@ class PrivateChannels extends Utils{
         $worker = new Worker();
 
         // 线上
-        $url = "ws://ws.okex.com:8443/ws/v5/private?brokerId=9999";
+        $url = "ws://ws.okex.com:8443/ws/v5/private";
+
+        // 模拟
+//        $url = "ws://ws.okex.com:8443/ws/v5/private?brokerId=9999";
 
         $worker->onWorkerStart = function($worker) use ($url){
             // ssl需要访问443端口

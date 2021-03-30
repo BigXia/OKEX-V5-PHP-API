@@ -43,8 +43,15 @@ class PublicChannels extends Utils{
         $GLOBALS['callback'] = $callback;
         $worker = new Worker();
 
-        // 线上
-        $url = "ws://ws.okex.com:8443/ws/v5/public?brokerId=9999";
+        // 实盘
+        $url = "ws://ws.okex.com:8443/ws/v5/public";
+        // 模拟盘
+//        $url = "ws://ws.okex.com:8443/ws/v5/public?brokerId=9999";
+
+        //aws 实盘
+//        $url = "ws://wsaws.okex.com:8443/ws/v5/public";
+        //aws 模拟盘
+//        $url = "ws://wspap.okex.com:8443/ws/v5/public?brokerId=9999"
 
         $worker->onWorkerStart = function($worker) use ($url){
             // ssl需要访问443端口

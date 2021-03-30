@@ -36,7 +36,10 @@ class Utils
         $timestamp = self::getTimestamp();
 
         $sign = self::signature($timestamp, $method, $requestPath, $body, self::$apiSecret);
-        $headers = self::getHeader(self::$apiKey, self::$paper,$sign, $timestamp, self::$passphrase, self::$textToSign);
+        if (!empty(self::$apiKey)){
+            $headers = self::getHeader(self::$apiKey, self::$paper,$sign, $timestamp, self::$passphrase, self::$textToSign);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        }
 
 
         if($method == "POST") {
@@ -47,8 +50,7 @@ class Utils
         // 设置超时时间
 //        curl_setopt($ch, CURLOPT_TIMEOUT_MS,60);
 
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER , TRUE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER , FALSE);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT,true);
 
