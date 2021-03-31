@@ -92,9 +92,9 @@ $instrumentId = "ETH-USD-200925";
 $coin = "EOS";
 $obj = new MarketDataAPI(Config::$config);
 // 获取所有产品行情信息 Get Tickers
-//$res = $obj->getTickers('FUTURES','BTC-USD');
+$res = $obj->getTickers('SPOT','');
 // 获取单个产品行情信息 Get Ticker
-$res = $obj->getTicker('BTC-USD-SWAP');
+//$res = $obj->getTicker('BTC-USD-SWAP');
 // 获取指数行情 Get Index Tickers
 //$res = $obj->getIndexTicker('BTC','');
 // 获取产品深度 Get Order Book
@@ -141,7 +141,7 @@ $obj = new PublicDataAPI(Config::$config);
 // 获取标记价格 Get Mark Price
 //$res = $obj->getMarkPrice('MARGIN','','');
 // Status  scheduled: waiting; ongoing: processing; completed: completed .
-$res = $obj->getStatus('completed');
+//$res = $obj->getStatus('completed');
 
 
 /**

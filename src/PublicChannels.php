@@ -121,8 +121,7 @@ class PublicChannels extends Utils{
 
                         print_r("---------------------------------------------------------------\n");
 
-
-                        // 打印增量数据
+                        // 回调数据处理函数
                         call_user_func_array($GLOBALS['callback'], array($update));
 
                         // 更新全局的全量数据
@@ -130,8 +129,10 @@ class PublicChannels extends Utils{
                     }
 //                    print_r("深度\n") ;
                 }else{
-                    $ntime = $this->getTimestamp();
-                    print_r($ntime . " $data\n");
+//                    $ntime = $this->getTimestamp();
+                    // 回调数据处理函数
+                    call_user_func_array($GLOBALS['callback'], array($data));
+//                    print_r($ntime . " $data\n");
                 }
 
             };
